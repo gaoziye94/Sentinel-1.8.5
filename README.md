@@ -1,3 +1,14 @@
+### fork sentinel1.8.5
+### 修改内容
+- 将 src/test/java/com/alibaba/csp/sentinel/dashboard/rule/nacos 下所有文件（包括包）拷贝到 src/main/java/com/alibaba/csp/sentinel/dashboard/rule 目录下
+- 找到 src/main/webapp/resources/app/scripts/directives/sidebar/sidebar.html 文件中dashboard.flowV1 改成 dashboard.flow
+- 修改 NacosConfig文件 nacosConfigService方法中nacos ip:port
+
+### 注意事项
+- NacosConfigUtil 文件中配置。 nacos命名空间，dataID（项目名-flow-rules），group （SENTINEL_GROUP）
+
+
+
 <img src="https://user-images.githubusercontent.com/9434884/43697219-3cb4ef3a-9975-11e8-9a9c-73f4f537442d.png" alt="Sentinel Logo" width="50%">
 
 # Sentinel: The Sentinel of Your Microservices

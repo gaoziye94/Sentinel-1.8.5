@@ -23,6 +23,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.nacos.api.config.ConfigFactory;
 import com.alibaba.nacos.api.config.ConfigService;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -32,6 +33,10 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class NacosConfig {
+
+
+    @Value("${nacos.addr}")
+    private String nacosAddress;
 
     @Bean
     public Converter<List<FlowRuleEntity>, String> flowRuleEntityEncoder() {
@@ -45,6 +50,6 @@ public class NacosConfig {
 
     @Bean
     public ConfigService nacosConfigService() throws Exception {
-        return ConfigFactory.createConfigService("39.98.204.210:8848");
+        return ConfigFactory.createConfigService(nacosAddress);
     }
 }
